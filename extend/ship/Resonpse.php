@@ -9,8 +9,9 @@
 namespace ship;
 
 use think\Log;
+use ship\Sign;
 class Resonpse{
-    protected $signType;
+    protected $signType='MD5';
     
     protected static $instance=false;
     
@@ -42,8 +43,7 @@ class Resonpse{
         return implode(',', $data);
     }
     protected function sign(array $data){
-        $data['sign'] = 'sign';
-        
+        $data['sign'] = Sign::data($data, $this->signType);
         return $data;
     }
 }
