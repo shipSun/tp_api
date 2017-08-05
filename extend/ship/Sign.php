@@ -23,10 +23,8 @@ class Sign{
         if(static::$instance->signTypeName!=$type){
             static::$instance->initSignType($type);
         }
-        $sign = static::$instance->signType->decrypt($sign);
         
         $verifySign = static::$instance->signType->encrypt($data);
-        
         if($verifySign==$sign){
             return true;
         }
@@ -41,7 +39,7 @@ class Sign{
     }
     protected function initSignType($type){
         static::$instance->signTypeName = $type;
-        $className = 'ship\sign\\'.$type;
+        $className = 'ship\encrypt\\'.$type;
         static::$instance->signType=(new $className);
     }
 }

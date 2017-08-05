@@ -8,7 +8,7 @@ class Index
 {
     public function index()
     {
-        $arr = ['a'=>1,'b'=>2,'c'=>3,'d'=>'       1 '];
+        $arr = ['a'=>1,'b'=>2,'c'=>3,'d'=>'1'];
         $sign = Sign::data($arr);
         echo $sign;
         

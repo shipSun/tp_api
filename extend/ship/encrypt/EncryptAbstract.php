@@ -2,18 +2,18 @@
 /*
  * 加密抽象类 
  */
-namespace ship\sign;
+namespace ship\encrypt;
 
 abstract class EncryptAbstract{
     public final function encrypt($data){
         $sign = $this->toString($data);
         return $this->encryptHandle($sign);
     }
-    public abstract function encryptHandle($string);
+    protected abstract function encryptHandle($string);
     public final function decrypt($sign){
         return $this->decryptHandle($sign);
     }
-    public abstract function decryptHandle($sign);
+    protected abstract function decryptHandle($sign);
     protected function toString($data){
         $data = $this->sort($data);
         return http_build_query($data);
